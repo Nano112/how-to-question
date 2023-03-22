@@ -4,16 +4,34 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<script src="https://cdn.tailwindcss.com"></script>
-		<title>How To Question</title>
+		<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+		<script src="//unpkg.com/alpinejs" defer></script>
+		<title>How To Ask A Question</title>
 	</head>
-	<body>
-		<div class="container mx-auto">
-			<h1 class="text-4xl text-center">How To Ask A Question</h1>
-			<p class="text-center">
-				This is a guide on how to ask a question because you probably don't know
-				how to.
-			</p>
-		</div>
-	</body>
+	<body class="bg-gray-100 min-h-screen">
+		<div class="container mx-auto px-4 py-8">
+			<h1 class="text-4xl text-center font-bold mb-6">How To Ask A Question</h1>
+			<div class="bg-white shadow-md rounded-lg p-6">
+				<p class="text-center mb-8">Follow these steps to formulate a good question:</p>
+				<ol class="list-decimal list-outside pl-5 space-y-4" x-data="{ activeIndex: -1 }">
+					<li class="relative p-4 bg-gray-50 rounded-lg cursor-pointer" @click="activeIndex === 0 ? activeIndex = -1 : activeIndex = 0">
+						<h3 class="font-semibold">1. Think about your question</h3>
+						<p x-show.transition="activeIndex === 0" class="mt-2 text-sm">Make sure your question is well-formulated, clear, and concise. Avoid ambiguity and double-check your grammar and spelling.</p>
+					</li>
+					<li class="relative p-4 bg-gray-50 rounded-lg cursor-pointer" @click="activeIndex === 1 ? activeIndex = -1 : activeIndex = 1">
+						<h3 class="font-semibold">2. Provide enough context</h3>
+						<p x-show.transition="activeIndex === 1" class="mt-2 text-sm">Include relevant information and background context to help others understand your question better. This will also help you get more accurate and helpful answers.</p>
+					</li>
+					<li class="relative p-4 bg-gray-50 rounded-lg cursor-pointer" @click="activeIndex === 2 ? activeIndex = -1 : activeIndex = 2">
+						<h3 class="font-semibold">3. Google it first</h3>
+						<p x-show.transition="activeIndex === 2" class="mt-2 text-sm">Before asking a question, try searching for an answer online. You might find the information you need or similar questions that have already been answered.</p>
+					</li>
+					<li class="relative p-4 bg-gray-50 rounded-lg cursor-pointer" @click="activeIndex === 3 ? activeIndex = -1 : activeIndex = 3">
+						<h3 class="font-semibold">4. Avoid XY problems</h3>
+						<p x-show.transition="activeIndex === 3" class="mt-2 text-sm">An XY problem occurs when you ask about a specific solution (X) to a problem (Y) instead of asking about the problem itself. Make sure you're asking about the actual problem you're trying to solve. <a href="https://xyproblem.info/" class="text-blue-600" target="_blank" rel="noopener noreferrer">Learn more</
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </body>
 </html>
