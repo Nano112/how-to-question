@@ -66,27 +66,28 @@
 				<ol
 					class="list-none list-outside pl-5 space-y-4"
 					x-data="{ activeIndex: -1, tips: [
-                        {
-                            title: 'Don\\'t ask to ask',
-                            description: 'Don\\'t ask to ask, just ask. Asking to ask is considered impolite and unnecessary. If you\\'re not sure how to ask your question, read the rest of this guide. For example, instead of saying \\'Can I ask a question about JavaScript?\\', simply ask your JavaScript question directly.'
-                        },
-                        {
-                            title: 'Think about your question',
-                            description: 'Make sure your question is well-formulated, clear, and concise. Avoid ambiguity and double-check your grammar and spelling. For instance, instead of asking \\'How to fix error?\\', provide a more specific question like \\'How can I fix the TypeError in my Python code?\\''
-                        },
-                        {
-                            title: 'Provide enough context',
-                            description: 'Include relevant information and background context to help others understand your question better. This will also help you get more accurate and helpful answers. For example, when asking about a coding issue, share the relevant code snippet, error message, and what you\\'ve tried so far.'
-                        },
-                        {
-                            title: 'Google it first',
-                            description: 'Before asking a question, try searching for an answer online. You might find the information you need or similar questions that have already been answered. This not only saves time for others but also helps you learn how to research effectively. For example, if you have a question about Excel formulas, try searching \\'Excel formula to calculate the sum of a column\\' before asking.'
-                        },
-                        {
-                            title: 'Avoid XY problems',
-                            description: 'An XY problem occurs when you ask about a specific solution (X) to a problem (Y) instead of asking about the problem itself. Make sure you\\'re asking about the actual problem you\\'re trying to solve. <a href=\\'https://xyproblem.info/\\' class=\\'text-blue-600 dark:text-blue-400\\' target=\\'_blank\\' rel=\\'noopener noreferrer\\'>Learn more about XY problems</a>. For example, instead of asking \\'How do I use regex to parse HTML?\\', describe your goal: \\'I need to extract all the links from an HTML page. What is the best approach?\\''
-                        }
-                    ]}"
+                    {
+                        title: 'Don\'t ask to ask',
+                        description: 'Don\'t ask to ask, just ask. Asking to ask is considered impolite and unnecessary. If you\'re not sure how to ask your question, read the rest of this guide.'
+                        
+                    },
+                    {
+                        title: 'Think about your question',
+                        description: 'Make sure your question is well-formulated, clear, and concise. Avoid ambiguity and double-check your grammar and spelling.'
+                    },
+                    {
+                        title: 'Provide enough context',
+                        description: 'Include relevant information and background context to help others understand your question better. This will also help you get more accurate and helpful answers.'
+                    },
+                    {
+                        title: 'Google it first',
+                        description: 'Before asking a question, try searching for an answer online. You might find the information you need or similar questions that have already been answered.'
+                    },
+                    {
+                        title: 'Avoid XY problems',
+                        description: 'An XY problem occurs when you ask about a specific solution (X) to a problem (Y) instead of asking about the problem itself. Make sure you\'re asking about the actual problem you\'re trying to solve. <a href=\'https://xyproblem.info/\' class=\'text-blue-600 dark:text-blue-400\' target=\'_blank\' rel=\'noopener noreferrer\'>Learn more about XY problems</a>.'
+                    }
+                ]}"
 				>
 					<template x-for="(tip, index) in tips" :key="index">
 						<li
