@@ -75,7 +75,7 @@
                     }
                 ]}">
                     <template x-for="(tip, index) in tips" :key="index">
-                        <li class="relative p-4 bg-gray-50 dark:bg-gray-800 rounded-lg cursor-pointer" @click="activeIndex === index ? activeIndex = -1 : activeIndex = index">
+                        <li class="relative p-4 bg-gray-900 rounded-lg cursor-pointer" @click="activeIndex === index ? activeIndex = -1 : activeIndex = index">
                             <h3 class="font-semibold" x-text="tip.title"></h3>
                             <p x-show.transition="activeIndex === index" class="mt-2 text-sm" x-html="tip.description"></p>
                         </li>
