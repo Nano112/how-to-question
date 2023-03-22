@@ -1,108 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link
-			href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css"
-			rel="stylesheet"
-		/>
-		<script src="//unpkg.com/alpinejs" defer></script>
-		<!-- clarity -->
-		<script type="text/javascript">
-			(function (c, l, a, r, i, t, y) {
-				c[a] =
-					c[a] ||
-					function () {
-						(c[a].q = c[a].q || []).push(arguments);
-					};
-				t = l.createElement(r);
-				t.async = 1;
-				t.src = "https://www.clarity.ms/tag/" + i;
-				y = l.getElementsByTagName(r)[0];
-				y.parentNode.insertBefore(t, y);
-			})(window, document, "clarity", "script", "gckxfcxak5");
-		</script>
-		<title>How To Ask A Question</title>
-		<style>
-			.dark-mode {
-				background-color: #1a202c;
-				color: #f1f5f9;
-			}
-		</style>
-
-		<!-- Open Graph / Twitter Card metadata -->
-		<meta property="og:title" content="How To Ask A Question" />
-		<meta
-			property="og:description"
-			content="Learn how to ask better questions with this simple guide."
-		/>
-		<meta
-			property="og:image"
-			content="https://how-to-question.com/favicon.ico"
-		/>
-		<meta property="og:url" content="https://how-to-question.com/" />
-		<meta property="og:type" content="website" />
-		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:title" content="How To Ask A Question" />
-		<meta
-			name="twitter:description"
-			content="Learn how to ask better questions with this simple guide."
-		/>
-		<meta
-			name="twitter:image"
-			content="https://how-to-question.com/favicon.ico"
-		/>
-		<meta name="twitter:site" content="@your-twitter-handle" />
-	</head>
-	<body class="bg-gray-800 min-h-screen text-gray-100">
-		<div class="container mx-auto px-4 py-8">
-			<h1 class="text-4xl text-center font-bold mb-6">How To Ask A Question</h1>
-			<div class="bg-gray-700 shadow-md rounded-lg p-6">
-				<p class="text-center mb-8">
-					Follow these steps to formulate a good question:
-				</p>
-				<ol
-					class="list-none list-outside pl-5 space-y-4"
-					x-data="{ activeIndex: -1, tips: [
-                    {
-                        title: 'Think about your question',
-                        description: 'Make sure your question is well-formulated, clear, and concise. It is likely that by understanding your own question better, you will be able to solve it yourself, or at least get a better answer.'
-                    },
-                    {
-                        title: 'Google it first',
-                        description: 'Before asking a question, try searching for an answer online. You might find the information you need or similar questions that have already been answered.'
-                    },
-                    {
-                        title: 'Give Context',
-                        description: 'Keep in mind that the people answering your question are not mind readers. Provide enough context so that others can understand your question better. What are you trying to do? What have you tried so far? What\'s the problem?'
-                    },
-                    {
-                        title: 'Don\'t ask to ask',
-                        description: 'Don\'t ask to ask, just ask. Asking to ask is considered impolite and unnecessary. If you\'re not sure how to ask your question, read the rest of this guide.'
-                    },
-                    {
-                        title: 'Avoid XY problems',
-                        description: 'An XY problem occurs when you ask about a specific solution (X) to a problem (Y) instead of asking about the problem itself. Make sure you\'re asking about the actual problem you\'re trying to solve. <a href=\'https://xyproblem.info/\' class=\'text-blue-600 dark:text-blue-400\' target=\'_blank\' rel=\'noopener noreferrer\'>Learn more about XY problems</a>.'
-                    }
-                ]}"
-				>
-					<template x-for="(tip, index) in tips" :key="index">
-						<li
-							class="relative p-4 bg-gray-900 rounded-lg cursor-pointer"
-							@click="activeIndex === index ? activeIndex = -1 : activeIndex = index"
-						>
-							<h3 class="font-semibold" x-text="tip.title"></h3>
-							<p
-								x-show.transition="activeIndex === index"
-								class="mt-2 text-sm"
-								x-html="tip.description"
-							></p>
-						</li>
-					</template>
-				</ol>
-			</div>
-		</div>
-	</body>
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link
+         href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css"
+         rel="stylesheet"
+         />
+      <!-- Alpine Plugins -->
+      <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
+      <!-- Alpine Core -->
+      <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+      <!-- clarity -->
+      <script type="text/javascript">
+         (function (c, l, a, r, i, t, y) {
+         	c[a] =
+         		c[a] ||
+         		function () {
+         			(c[a].q = c[a].q || []).push(arguments);
+         		};
+         	t = l.createElement(r);
+         	t.async = 1;
+         	t.src = "https://www.clarity.ms/tag/" + i;
+         	y = l.getElementsByTagName(r)[0];
+         	y.parentNode.insertBefore(t, y);
+         })(window, document, "clarity", "script", "gckxfcxak5");
+      </script>
+      <title>How To Ask A Question</title>
+      <style>
+         html {
+         scroll-behavior: smooth;
+         }
+         html, body, section {
+         block-size: 100%;
+         }
+         html {
+         scroll-snap-type: y mandatory;
+         }
+         section {
+         scroll-snap-align: start;
+         scroll-snap-stop: always;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         }
+         section:nth-of-type(even) {
+         color: #f7fafc;
+         background: #2b2b2b;
+         }
+         section:nth-of-type(odd) {
+         color: #2b2b2b;
+         background: #f7fafc;
+         }
+         body {
+         margin: 0;
+		 background: #f7fafc;
+         }
+      </style>
+      <!-- Open Graph / Twitter Card metadata -->
+      <meta property="og:title" content="How To Ask A Question" />
+      <meta
+         property="og:description"
+         content="Dont ask to ask, google it, think about it, give enough context, and ask about your problem, not your solution."
+         />
+      <meta
+         property="og:image"
+         content="https://how-to-question.com/favicon.ico"
+         />
+      <meta property="og:url" content="https://how-to-question.com/" />
+      <meta property="og:type" content="website" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="How To Ask A Question" />
+      <meta
+         name="twitter:description"
+         content="Dont ask to ask, google it, think about it, give enough context, and ask about your problem, not your solution."
+         />
+   </head>
+   <body class="min-h-screen">
+      <div
+         class="list-none list-outside space-y-4 scroll-snap-container"
+         x-data="{ activeIndex: -1, tips: [
+         {
+         title: 'Have you thought about it?',
+         description: 'Make sure your question is well-formulated, clear, and concise. It is likely that by understanding your own question better, you will be able to solve it yourself, or at least get a better answer.',
+         id: 'think-about-it'
+         },
+         {
+         title: 'Did you search for an answer?',
+         description: 'Before asking a question, try searching for an answer online. It can be Google, Stack Overflow, or even discord message history. You might find the information you need or similar questions that have already been answered.',
+         id: 'search-for-it'
+         },
+         {
+         title: 'Did you give enough context?',
+         description: 'Keep in mind that the people answering your question are not mind readers. Provide enough context so that others can understand your question better. What are you trying to do? What have you tried so far? What\'s the problem?',
+         id: 'give-enough-context'
+         },
+         {
+         title: 'Am I actually asking the question?',
+         description: 'Don\'t ask to ask, just ask. Asking to ask is considered impolite and unnecessary. If you\'re not sure how to ask your question, read the rest of this guide.',
+         id: 'dont-ask-to-ask'
+         },
+         {
+         title: 'Am I asking about my problem or my solution?',
+         description: 'An XY problem occurs when you ask about a specific solution (X) to a problem (Y) instead of asking about the problem itself. Make sure you\'re asking about the actual problem you\'re trying to solve. <a href=\'https://xyproblem.info/\' class=\'text-blue-600 dark:text-blue-400\' target=\'_blank\' rel=\'noopener noreferrer\'>Learn more about XY problems</a>.',
+         id: 'xy-problem'
+         }
+         ]}"
+         >
+         <section>
+            <div class="h-screen flex flex-col justify-center  scroll-snap-section">
+               <h1 class="text-4xl text-center font-bold mb-6">
+                  How To Ask A Question
+               </h1>
+               <p class="text-center mb-8">
+                  Ask yourself these questions before asking a question.
+               </p>
+               <div class="flex flex-col justify-center items-center text-center">
+                  <ul class="list-none list-inside">
+                  <template x-for="(tip, index) in tips" :key="index">
+                     <li class="mb-2">
+                        <a
+                           class="bg-gray-100 rounded-md px-2 py-1 text-gray-800 dark:bg-gray-700 dark:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-600 block"
+                           :href="'#' + tip.id"
+                           >
+                        <span x-text="tip.title"></span>
+                        </a>
+                     </li>
+                  </template>
+               </div>
+            </div>
+         </section>
+         <template x-for="(tip, index) in tips" :key="index">
+            <section>
+               <div
+                  class="h-screen flex flex-col justify-center  scroll-snap-section px-4"
+                  :class="{ 'dark-mode': activeIndex === index }"
+                  :id="tip.id"
+                  >
+                  <div class="flex flex-col justify-center items-center">
+                     <h2 class="text-2xl font-bold mb-2" x-text="tip.title"></h2>
+                     <p class="text-center" x-html="tip.description"></p>
+                  </div>
+               </div>
+			   <div class="fixed bottom-0 right-0 mb-4 mr-4 bg-white dark:bg-gray-800 rounded-full shadow-lg p-2">
+					<a href="" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300">
+						<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
+						</svg>
+					</a>
+				</div>
+            </section>
+         </template>
+		 
+      </div>
+   </body>
 </html>
