@@ -81,31 +81,48 @@
       <div
          class="list-none list-outside space-y-4 scroll-snap-container"
          x-data="{ activeIndex: -1, tips: [
-         {
-         title: 'Have you thought about it?',
-         description: 'Make sure your question is well-formulated, clear, and concise. It is likely that by understanding your own question better, you will be able to solve it yourself, or at least get a better answer.',
-         id: 'think-about-it'
-         },
-         {
-         title: 'Did you search for an answer?',
-         description: 'Before asking a question, try searching for an answer online. It can be Google, Stack Overflow, or even discord message history. You might find the information you need or similar questions that have already been answered.',
-         id: 'search-for-it'
-         },
-         {
-         title: 'Did you give enough context?',
-         description: 'Keep in mind that the people answering your question are not mind readers. Provide enough context so that others can understand your question better. What are you trying to do? What have you tried so far? What\'s the problem?',
-         id: 'give-enough-context'
-         },
-         {
-         title: 'Am I actually asking the question?',
-         description: 'Don\'t ask to ask, just ask. Asking to ask is considered impolite and unnecessary. If you\'re not sure how to ask your question, read the rest of this guide.',
-         id: 'dont-ask-to-ask'
-         },
-         {
-         title: 'Am I asking about my problem or my solution?',
-         description: 'An XY problem occurs when you ask about a specific solution (X) to a problem (Y) instead of asking about the problem itself. Make sure you\'re asking about the actual problem you\'re trying to solve. <a href=\'https://xyproblem.info/\' class=\'text-blue-600 dark:text-blue-400\' target=\'_blank\' rel=\'noopener noreferrer\'>Learn more about XY problems</a>.',
-         id: 'xy-problem'
-         }
+            {
+               title: 'Have you thought about it?',
+               description: 'Make sure your question is well-formulated, clear, and concise. It is likely that by understanding your own question better, you will be able to solve it yourself, or at least get a better answer.',
+               id: 'think-about-it',
+               bad_example: 'Why isn\'t my keyboard working?',
+               bad_example_description: 'It might just not be plugged in. The question in not only very solvable, but also very vague. It\'s also not clear what you\'re trying to do.',
+            },
+            {
+               title: 'Did you search for an answer?',
+               description: 'Before asking a question, try searching for an answer online. It can be Google, Stack Overflow, or even discord message history. You might find the information you need or similar questions that have already been answered.',
+               id: 'search-for-it',
+               bad_example: 'What time is it?',
+               bad_example_description: 'You don\'t need to ask this question. You can just look at your clock or phone. If you\'re asking this question, you\'re probably not asking a good question.'
+            },
+            {
+               title: 'Did you give enough context?',
+               description: 'Keep in mind that the people answering your question are not mind readers. Provide enough context so that others can understand your question better. What are you trying to do? What have you tried so far? What\'s the problem?',
+               id: 'give-enough-context',
+               bad_example: 'Why isn\'t it working?',
+               bad_example_description: 'What even is it? What is the support? What are you trying to do? What have you tried so far? What\'s the problem?'
+            },
+            {
+               title: 'Am I actually asking the question?',
+               description: 'Don\'t ask to ask, just ask. Asking to ask is considered impolite and unnecessary. If you\'re not sure how to ask your question, read the rest of this guide.',
+               id: 'dont-ask-to-ask',
+               bad_example: 'Can someone help me?',
+               bad_example_description: 'This is not a question. It\'s just a request for help. If you\'re not sure how to ask your question, read the rest of this guide.'
+            },
+            {
+               title: 'Am I asking about my problem or my solution?',
+               description: 'An XY problem occurs when you ask about a specific solution (X) to a problem (Y) instead of asking about the problem itself. Make sure you\'re asking about the actual problem you\'re trying to solve. <a href=\'https://xyproblem.info/\' class=\'text-blue-600 dark:text-blue-400\' target=\'_blank\' rel=\'noopener noreferrer\'>Learn more about XY problems</a>.',
+               id: 'xy-problem',
+               bad_example: 'How can I share variables between python and C++?',
+               bad_example_description: 'The solution might be much simpler or much more complicated than you think. You also might not even need to share variables between the two languages. You should ask about the problem you\'re trying to solve, not the solution you\'re trying to implement.'
+            },
+            {
+               title: 'Did I find the answer?',
+               description: 'If you found the answer to your question, please consider marking it as the answer. This will help others who have the same question in the future.',
+               id: 'nvm-i-found-it',
+               bad_example: 'Nevermind, I found it.',
+               bad_example_description: 'If you found the answer to your question, please consider marking it as the answer. This will help others who have the same question in the future. It might also help you find the answer to your question faster next time.'
+            }
          ]}"
          >
          <section>
@@ -142,6 +159,9 @@
                      <h2 class="text-2xl font-bold mb-2" x-text="tip.title"></h2>
                      <p class="text-center" x-html="tip.description"></p>
                   </div>
+
+
+                     
                </div>
 			   <div class="fixed bottom-0 right-0 mb-4 mr-4 bg-white dark:bg-gray-800 rounded-full shadow-lg p-2">
 					<a href="" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300">
